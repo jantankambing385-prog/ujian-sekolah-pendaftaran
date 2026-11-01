@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UJIAN SEKOLAH | Pendaftaran Sekolah</title>
+<style>
+:root {
+  --navy:#123b59;
+  --blue:#1769aa;
+  --light:#f2f7fc;
+  --gold:#f2b84b;
+  --text:#263747;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:var(--text);
+  background:var(--light);
+}
+header{
+  background:white;
+  padding:18px 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 2px 12px #123b5912;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:45px;height:45px;border-radius:12px;
+  background:var(--navy);color:white;
+  display:grid;place-items:center;
+  font-size:23px;font-weight:bold;
+}
+.brand strong{font-size:20px;color:var(--navy)}
+.brand small{display:block;color:#718096;margin-top:4px}
+nav a{color:var(--navy);text-decoration:none;font-weight:bold}
+.hero{
+  background:linear-gradient(120deg,#123b59,#1769aa);
+  color:white;padding:65px 8% 85px;
+}
+.hero .tag{
+  display:inline-block;background:#ffffff20;
+  padding:9px 15px;border-radius:30px;font-size:13px;
+}
+.hero h1{font-size:42px;max-width:650px;line-height:1.2;margin:22px 0 14px}
+.hero p{max-width:650px;line-height:1.8;color:#e3edf6}
+.hero .highlight{color:var(--gold)}
+.container{
+  max-width:1000px;margin:-40px auto 60px;
+  padding:0 18px;position:relative;
+}
+.card{
+  background:white;border-radius:18px;
+  padding:32px;box-shadow:0 10px 35px #123b5915;
+}
+.card h2{color:var(--navy);margin:0 0 8px}
+.intro{color:#718096;line-height:1.6;margin-bottom:28px}
+.section-title{
+  border-bottom:1px solid #e5edf4;
+  padding-bottom:12px;margin:28px 0 20px;
+  color:var(--navy);font-weight:bold;
+}
+.grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1/-1}
+label{font-weight:bold;font-size:14px}
+input,select{
+  width:100%;padding:13px 14px;
+  border:1px solid #d5e0e9;border-radius:9px;
+  font-size:15px;background:white;color:var(--text);
+}
+input:focus,select:focus{
+  outline:2px solid #1769aa30;border-color:var(--blue);
+}
+.hint{font-size:12px;color:#7a8794;line-height:1.5}
+.required{color:#d64545}
+button{
+  border:0;border-radius:9px;padding:15px 25px;
+  background:var(--blue);color:white;
+  font-size:16px;font-weight:bold;cursor:pointer;
+}
+button:hover{background:var(--navy)}
+.actions{margin-top:28px}
+.notice{
+  background:#fff8e8;border-left:4px solid var(--gold);
+  padding:14px;border-radius:6px;
+  font-size:13px;line-height:1.6;margin-top:20px;
+}
+#message{
+  display:none;padding:14px;border-radius:8px;
+  margin-top:18px;line-height:1.5;
+}
+footer{
+  background:#102f48;color:#d8e5ef;
+  text-align:center;padding:30px 15px;
+  font-size:13px;line-height:1.8;
+}
+@media(max-width:650px){
+  header{padding:14px 5%}
+  .brand strong{font-size:17px}
+  nav{display:none}
+  .hero{padding:48px 7% 75px}
+  .hero h1{font-size:32px}
+  .card{padding:22px 17px}
+  .grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo">U</div>
+    <div>
+      <strong>UJIAN SEKOLAH</strong>
+      <small>Platform Ujian Sekolah Indonesia</small>
+    </div>
+  </div>
+  <nav><a href="#daftar">Daftarkan Sekolah →</a></nav>
+</header>
+
+<section class="hero">
+  <span class="tag">PLATFORM DIGITAL PENDIDIKAN</span>
+  <h1>Satu Platform untuk <span class="highlight">Ujian Sekolah</span> Indonesia</h1>
+  <p>
+    Kelola kegiatan ujian sekolah dengan lebih mudah,
+    terstruktur, dan fleksibel. Dirancang untuk sekolah
+    dari berbagai jenjang pendidikan di Indonesia.
+  </p>
+</section>
+
+<main class="container" id="daftar">
+  <div class="card">
+    <h2>Pendaftaran Sekolah</h2>
+    <p class="intro">
+      Silakan lengkapi identitas sekolah dan informasi
+      administrator untuk memulai pendaftaran.
+    </p>
+
+    <form id="registrationForm">
+      <div class="section-title">01. Identitas Sekolah</div>
+      <div class="grid">
+
+        <div class="field">
+          <label>NPSN <span class="required">*</span></label>
+          <input id="npsn" name="npsn" required
+            maxlength="8" minlength="8"
+            inputmode="numeric" pattern="[0-9]{8}"
+            placeholder="Masukkan 8 digit NPSN">
+          <span class="hint">NPSN digunakan sebagai identitas unik sekolah.</span>
+        </div>
+
+        <div class="field">
+          <label>Nama Sekolah <span class="required">*</span></label>
+          <input name="nama_sekolah" required
+            placeholder="Contoh: SMP Negeri 1">
+        </div>
+
+        <div class="field">
+          <label>Jenjang Pendidikan <span class="required">*</span></label>
+          <select name="jenjang" required>
+            <option value="">Pilih jenjang</option>
+            <option>SD</option>
+            <option>MI</option>
+            <option>SMP</option>
+            <option>MTs</option>
+            <option>SMA</option>
+            <option>MA</option>
+            <option>SMK</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Provinsi <span class="required">*</span></label>
+          <input name="provinsi" required placeholder="Nama provinsi">
+        </div>
+
+        <div class="field">
+          <label>Kabupaten / Kota <span class="required">*</span></label>
+          <input name="kabupaten_kota" required placeholder="Kabupaten atau kota">
+        </div>
+
+        <div class="field">
+          <label>Kecamatan <span class="required">*</span></label>
+          <input name="kecamatan" required placeholder="Nama kecamatan">
+        </div>
+      </div>
+
+      <div class="section-title">02. Administrator Sekolah</div>
+      <div class="grid">
+        <div class="field">
+          <label>Nama Admin <span class="required">*</span></label>
+          <input name="nama_admin" required placeholder="Nama lengkap admin">
+        </div>
+
+        <div class="field">
+          <label>Email Admin <span class="required">*</span></label>
+          <input type="email" name="email_admin" required
+            placeholder="nama@email.com">
+        </div>
+
+        <div class="field">
+          <label>Password <span class="required">*</span></label>
+          <input type="password" name="password" required
+            minlength="8" placeholder="Minimal 8 karakter">
+        </div>
+
+        <div class="field">
+          <label>Ulangi Password <span class="required">*</span></label>
+          <input type="password" name="konfirmasi_password" required
+            minlength="8" placeholder="Masukkan ulang password">
+        </div>
+      </div>
+
+      <div class="notice">
+        <strong>Informasi:</strong> Satu NPSN hanya dapat
+        digunakan untuk satu pendaftaran sekolah.
+        Pastikan seluruh data yang dimasukkan benar.
+      </div>
+
+      <div id="message" role="status"></div>
+
+      <div class="actions">
+        <button type="submit">Daftarkan Sekolah</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <strong>UJIAN SEKOLAH</strong><br>
+  Platform Pendaftaran dan Pengelolaan Ujian Sekolah Indonesia.<br>
+  © 2026 UJIAN SEKOLAH. Semua hak dilindungi.
+</footer>
+
+<script>
+document.getElementById("registrationForm")
+.addEventListener("submit", function(event){
+  event.preventDefault();
+
+  const form = event.target;
+  const data = new FormData(form);
+  const password = data.get("password");
+  const konfirmasi = data.get("konfirmasi_password");
+  const message = document.getElementById("message");
+
+  message.style.display = "block";
+
+  if(password !== konfirmasi){
+    message.style.background = "#fff0f0";
+    message.style.color = "#a52b2b";
+    message.textContent = "Password dan konfirmasi password tidak sama.";
+    return;
+  }
+
+  message.style.background = "#fff8e8";
+  message.style.color = "#795719";
+  message.textContent =
+    "Tampilan formulir berhasil diuji. Pendaftaran belum diaktifkan. Silakan tunggu integrasi sistem keamanan dan validasi NPSN.";
+});
+</script>
+
+</body>
+</html>
