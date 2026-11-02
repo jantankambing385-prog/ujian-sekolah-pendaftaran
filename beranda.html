@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102f50">
+<title>UJIAN SEKOLAH | Portal Pendidikan Indonesia</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f6fb;
+  color: #20344a;
+  line-height: 1.6;
+}
+
+.navbar {
+  background: #102f50;
+  color: white;
+  padding: 18px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 43px;
+  height: 43px;
+  border-radius: 12px;
+  background: white;
+  color: #102f50;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+}
+
+.brand h2 {
+  font-size: 19px;
+  letter-spacing: .5px;
+}
+
+.brand small {
+  color: #cbd9e8;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.nav-status {
+  font-size: 12px;
+  color: #bcebd8;
+}
+
+.hero {
+  background: linear-gradient(120deg, #102f50, #20577c);
+  color: white;
+  padding: 75px 7% 85px;
+}
+
+.hero-content {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+}
+
+.hero-label {
+  display: inline-block;
+  border: 1px solid #6b91ad;
+  padding: 6px 15px;
+  border-radius: 30px;
+  font-size: 12px;
+  color: #d8e8f5;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: #d7e5f1;
+  max-width: 650px;
+  margin: auto;
+  font-size: 16px;
+}
+
+.main {
+  max-width: 1100px;
+  margin: -35px auto 0;
+  padding: 0 20px 65px;
+  position: relative;
+}
+
+.section-heading {
+  text-align: center;
+  margin: 35px 0 30px;
+}
+
+.section-heading h2 {
+  font-size: 27px;
+  color: #173653;
+  margin-bottom: 7px;
+}
+
+.section-heading p {
+  color: #708096;
+  font-size: 14px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 28px 23px;
+  border-radius: 16px;
+  border: 1px solid #e4eaf1;
+  box-shadow: 0 7px 25px rgba(20, 48, 75, .06);
+  transition: .2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(20, 48, 75, .12);
+}
+
+.card-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+.blue { background: #e7f1fb; }
+.green { background: #e4f5ed; }
+.purple { background: #eee9fb; }
+
+.card h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+  color: #173653;
+}
+
+.card p {
+  font-size: 13px;
+  color: #748397;
+  min-height: 62px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 9px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  background: #1d6da5;
+  color: white;
+  transition: .2s;
+}
+
+.btn:hover {
+  background: #155783;
+}
+
+.btn.disabled {
+  background: #e7ebf0;
+  color: #8793a2;
+  cursor: not-allowed;
+}
+
+.info {
+  margin-top: 55px;
+  background: white;
+  border: 1px solid #e5ebf2;
+  border-radius: 15px;
+  padding: 28px;
+  text-align: center;
+}
+
+.info h3 {
+  color: #173653;
+  margin-bottom: 8px;
+}
+
+.info p {
+  color: #718096;
+  font-size: 13px;
+}
+
+.footer {
+  background: #102f50;
+  color: #cbd9e8;
+  padding: 27px 15px;
+  text-align: center;
+  font-size: 12px;
+}
+
+@media(max-width: 760px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 60px 6% 75px;
+  }
+
+  .card p {
+    min-height: auto;
+  }
+
+  .nav-status {
+    display: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="brand">
+    <div class="logo">🎓</div>
+    <div>
+      <h2>UJIAN SEKOLAH</h2>
+      <small>PORTAL PENDIDIKAN INDONESIA</small>
+    </div>
+  </div>
+  <div class="nav-status">● Platform Pendidikan Digital</div>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-label">PLATFORM DIGITAL PENDIDIKAN</span>
+    <h1>Satu Platform.<br>Banyak Sekolah.</h1>
+    <p>
+      Platform digital untuk membantu sekolah dan guru
+      mengelola ujian serta evaluasi pembelajaran secara
+      praktis, terintegrasi, dan mudah digunakan.
+    </p>
+  </div>
+</section>
+
+<main class="main">
+
+  <div class="section-heading">
+    <h2>Selamat Datang!</h2>
+    <p>Silakan pilih layanan yang ingin Anda gunakan.</p>
+  </div>
+
+  <section class="cards">
+
+    <article class="card">
+      <div class="card-icon blue">🏫</div>
+      <h3>Pendaftaran Sekolah</h3>
+      <p>
+        Daftarkan sekolah menggunakan NPSN untuk mulai
+        menggunakan platform UJIAN SEKOLAH.
+      </p>
+      <a class="btn" href="index.html#daftar">
+        Daftarkan Sekolah →
+      </a>
+    </article>
+
+    <article class="card">
+      <div class="card-icon green">👨‍🏫</div>
+      <h3>Pendaftaran Guru</h3>
+      <p>
+        Guru dapat membuat akun secara mandiri menggunakan
+        NPSN sekolah dan verifikasi email.
+      </p>
+      <span class="btn disabled">Segera Hadir</span>
+    </article>
+
+    <article class="card">
+      <div class="card-icon purple">🔐</div>
+      <h3>Login Pengguna</h3>
+      <p>
+        Akses dashboard sesuai peran sebagai admin pusat,
+        admin sekolah, atau guru.
+      </p>
+      <span class="btn disabled">Segera Hadir</span>
+    </article>
+
+  </section>
+
+  <section class="info">
+    <h3>Untuk Seluruh Jenjang Pendidikan</h3>
+    <p>
+      SD · MI · SMP · MTs · SMA · MA · SMK · MAK
+    </p>
+    <p style="margin-top:12px">
+      Dirancang untuk mendukung pengelolaan ujian sekolah
+      di seluruh Indonesia.
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <strong>UJIAN SEKOLAH</strong>
+  <p>Platform Pendidikan Indonesia</p>
+  <p>© 2026 UJIAN SEKOLAH. Semua hak dilindungi.</p>
+</footer>
+
+</body>
+</html>
