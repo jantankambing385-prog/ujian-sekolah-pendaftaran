@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendaftaran Guru | UJIAN SEKOLAH</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f6fc;
+      color: #173653;
+    }
+    header {
+      background: white;
+      padding: 20px 7%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo {
+      background: #123b5a;
+      color: white;
+      padding: 12px 17px;
+      border-radius: 12px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    header h2 { margin: 0; font-size: 21px; }
+    header p { margin: 5px 0 0; color: #718096; font-size: 13px; }
+    .hero {
+      background: linear-gradient(120deg,#123b5a,#1769aa);
+      color: white;
+      padding: 55px 8%;
+    }
+    .hero h1 { margin: 0 0 12px; font-size: 32px; }
+    .hero p { line-height: 1.7; }
+    .container {
+      max-width: 760px;
+      margin: -25px auto 50px;
+      background: white;
+      padding: 32px;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px #17365315;
+      position: relative;
+    }
+    .container h2 { margin-top: 0; }
+    .intro { color: #718096; line-height: 1.6; }
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 19px 0 8px;
+    }
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    input:focus {
+      outline: 2px solid #1769aa;
+      border-color: transparent;
+    }
+    button {
+      border: 0;
+      background: #1769aa;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:disabled { opacity: .6; cursor: not-allowed; }
+    .check-btn { margin-top: 12px; }
+    .submit-btn { width: 100%; margin-top: 25px; }
+    .message {
+      display: none;
+      padding: 13px;
+      margin-top: 15px;
+      border-radius: 8px;
+      line-height: 1.5;
+    }
+    .note {
+      background: #edf5ff;
+      padding: 13px;
+      border-radius: 8px;
+      color: #315b80;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #718096;
+      font-size: 13px;
+    }
+    @media(max-width:600px) {
+      .container { margin: -20px 14px 35px; padding: 22px; }
+      .hero h1 { font-size: 27px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">U</div>
+  <div>
+    <h2>UJIAN SEKOLAH</h2>
+    <p>Platform Ujian Sekolah Indonesia</p>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Pendaftaran Guru</h1>
+  <p>Bergabunglah dengan platform UJIAN SEKOLAH untuk mengelola ujian dan evaluasi pembelajaran.</p>
+</section>
+
+<main class="container">
+  <h2>Buat Akun Guru</h2>
+  <p class="intro">
+    Masukkan NPSN sekolah tempat Anda mengajar, kemudian lengkapi identitas untuk membuat akun.
+  </p>
+
+  <form id="guruForm">
+    <label for="npsn">NPSN Sekolah</label>
+    <input id="npsn" name="npsn" inputmode="numeric"
+      maxlength="8" pattern="[0-9]{8}"
+      placeholder="Masukkan 8 digit NPSN" required>
+
+    <button type="button" class="check-btn" id="checkBtn">
+      Periksa NPSN
+    </button>
+
+    <div id="schoolMessage" class="message"></div>
+
+    <label for="nama">Nama Lengkap Guru</label>
+    <input id="nama" name="nama" placeholder="Nama lengkap" required>
+
+    <label for="email">Email Pribadi</label>
+    <input id="email" name="email" type="email"
+      placeholder="nama@email.com" required>
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password"
+      minlength="8" placeholder="Minimal 8 karakter" required>
+
+    <label for="konfirmasi">Konfirmasi Password</label>
+    <input id="konfirmasi" name="konfirmasi" type="password"
+      minlength="8" placeholder="Ulangi password" required>
+
+    <div class="note">
+      Setelah pendaftaran diaktifkan, Anda akan menerima email verifikasi.
+      Gunakan email pribadi yang masih aktif.
+    </div>
+
+    <button type="submit" class="submit-btn">
+      Daftar Akun Guru
+    </button>
+
+    <div id="formMessage" class="message"></div>
+  </form>
+</main>
+
+<footer>
+  © 2026 UJIAN SEKOLAH — Platform Pendidikan Indonesia
+</footer>
+
+<script>
+  const form = document.getElementById("guruForm");
+  const formMessage = document.getElementById("formMessage");
+
+  document.getElementById("checkBtn").addEventListener("click", function() {
+    const npsn = document.getElementById("npsn").value.trim();
+    const message = document.getElementById("schoolMessage");
+
+    message.style.display = "block";
+    message.style.background = "#fff8e8";
+    message.style.color = "#795719";
+
+    if (!/^\d{8}$/.test(npsn)) {
+      message.textContent = "NPSN harus terdiri dari 8 angka.";
+      return;
+    }
+
+    message.textContent =
+      "Format NPSN benar. Pemeriksaan ke database sekolah belum diaktifkan.";
+  });
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const password = document.getElementById("password").value;
+    const konfirmasi = document.getElementById("konfirmasi").value;
+
+    formMessage.style.display = "block";
+
+    if (password !== konfirmasi) {
+      formMessage.style.background = "#fff0f0";
+      formMessage.style.color = "#a52b2b";
+      formMessage.textContent =
+        "Password dan konfirmasi password tidak sama.";
+      return;
+    }
+
+    formMessage.style.background = "#fff8e8";
+    formMessage.style.color = "#795719";
+    formMessage.textContent =
+      "Tampilan formulir berhasil diuji. Pendaftaran akun belum diaktifkan.";
+  });
+</script>
+
+</body>
+</html>
